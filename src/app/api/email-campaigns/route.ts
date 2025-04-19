@@ -1,9 +1,10 @@
+import { EmailCampaign } from '@/types/emailCampaign'
+import { CampaignSchema } from '@/utilities/schemas/emailCampaign'
 import { v4 as uuidV4 } from 'uuid'
-import { CampaignSchema } from './schema'
 
-export const POST = async (req: Request) => {
+export const POST = async (req: Request): Promise<Response> => {
   try {
-    const body = await req.json()
+    const body: EmailCampaign = await req.json()
     const parseResult = CampaignSchema.safeParse(body)
 
     if (!parseResult.success) {
