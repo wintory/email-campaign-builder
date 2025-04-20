@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Email Campaign Builder
 
-## Getting Started
+Web Application that allows users to create a custom email marketing campaigns through a RESTful API and a modern front-end UI.
 
-First, run the development server:
+#### Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend**: Next.js, React, React-Hook-Form, React-Quill, Axios, Classnames
+- **Backend**: Next.js API Routes, Node.js
+- **Validation**: Zod
+- **Database**: SQLite
+- **ORM**: Prisma
+- **Styling**: Tailwind, DaisyUI
+- **Others**: Husky, Jest, React-Testing-Library, Eslint, Prettier
+
+#### Folder Structure
+
+```
+email-campaign-builder/
+├── public/          # Static assets
+├── Prisma/          # ORM folder
+├── src/
+│   ├── app/         # All Next.js pages and api routes
+│   ├── components/  # All reusable components
+│   ├── constants/   # Shared constants
+│   ├── containers/  # Container components of each page
+│   ├── hooks/       # Custom React hooks
+│   ├── services/    # Service functions
+│   ├── tests/       # Setup test files
+│   ├── types/       # Shared types
+│   ├── utilities/   # Helper functions and utilities
+└── package.json     # Project metadata and dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Pre-install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **[node.js](https://nodejs.org/en/download)**
+- **[yarn](https://classic.yarnpkg.com/lang/en/docs/install)**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Installation
 
-## Learn More
+Follow these steps to get started with the project:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/wintory/email-campaign-builder.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Navigate to the project directory**:
 
-## Deploy on Vercel
+   ```bash
+   cd email-campaign-builder
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install dependencies**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   yarn install
+   ```
+
+4. **Setup database (SQLite)**:
+
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+
+5. **Start the development server**:
+
+   ```bash
+   yarn dev
+   ```
+
+6. **Start Database server (Optional)**:
+
+   ```bash
+   npx prisma studio
+   ```
+
+Open your browser and visit `http://localhost:3000` to view the application and `http://localhost:5555` to view the database.
