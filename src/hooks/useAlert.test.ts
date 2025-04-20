@@ -7,6 +7,7 @@ jest.useFakeTimers()
 describe('useAlert', () => {
   it('should initialize with undefined alertMessage', () => {
     const { result } = renderHook(() => useAlert())
+
     expect(result.current.alertMessage).toBeUndefined()
   })
 

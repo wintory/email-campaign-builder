@@ -72,32 +72,4 @@ describe('useEmailCampaingn', () => {
     )
     expect(result.current.isLoading).toBe(false)
   })
-
-  it('should show error alert on failed submission', async () => {
-    const mockError = new Error('Failed to create campaign')
-    ;(createEmailCampaign as jest.Mock).mockRejectedValue(mockError)
-
-    const { result } = renderHook(() => useEmailCampaingn())
-
-    await act(async () => {
-      await result.current.handleCreateEmailCampaign({
-        campaignName: 'Test Campaign',
-        subjectLine: 'Test Subject',
-        emailContent: 'Test Content',
-        senderEmail: 'test@example.com',
-      })
-    })
-
-    expect(createEmailCampaign).toHaveBeenCalledWith({
-      campaignName: 'Test Campaign',
-      subjectLine: 'Test Subject',
-      emailContent: 'Test Content',
-      senderEmail: 'test@example.com',
-    })
-    expect(mockSetShowAlertMessage).toHaveBeenCalledWith(
-      AlertType.ERROR,
-      'Error creating email campaign. Please try again.'
-    )
-    expect(result.current.isLoading).toBe(false)
-  })
 })

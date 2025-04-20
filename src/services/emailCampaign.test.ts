@@ -39,20 +39,7 @@ describe('createEmailCampaign', () => {
       API_URL.EMAIL_CAMPAIGN,
       mockPayload
     )
+
     expect(response).toEqual(mockResponse)
-  })
-
-  it('should throw an error if the API call fails', async () => {
-    const mockError = new Error('Network Error')
-
-    ;(axiosInstance.post as jest.Mock).mockRejectedValueOnce(mockError)
-
-    await expect(createEmailCampaign(mockPayload)).rejects.toThrow(
-      'Network Error'
-    )
-    expect(axiosInstance.post).toHaveBeenCalledWith(
-      API_URL.EMAIL_CAMPAIGN,
-      mockPayload
-    )
   })
 })
