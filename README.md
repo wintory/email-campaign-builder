@@ -2,7 +2,7 @@
 
 Web Application that allows users to create a custom email marketing campaigns through a RESTful API and a modern front-end UI.
 
-#### Tech Stack
+### Tech Stack
 
 - **Frontend**: Next.js, React, React-Hook-Form, React-Quill, Axios, Classnames
 - **Backend**: Next.js API Routes, Node.js
@@ -12,7 +12,7 @@ Web Application that allows users to create a custom email marketing campaigns t
 - **Styling**: Tailwind, DaisyUI
 - **Others**: Husky, Jest, React-Testing-Library, Eslint, Prettier
 
-#### Folder Structure
+### Folder Structure
 
 ```
 email-campaign-builder/
@@ -31,12 +31,12 @@ email-campaign-builder/
 └── package.json     # Project metadata and dependencies
 ```
 
-#### Pre-install
+### Pre-install
 
 - **[node.js](https://nodejs.org/en/download)**
 - **[yarn](https://classic.yarnpkg.com/lang/en/docs/install)**
 
-#### Installation
+### Installation
 
 Follow these steps to get started with the project:
 
