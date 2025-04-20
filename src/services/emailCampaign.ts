@@ -8,6 +8,7 @@ interface EmailCampaignResponse {
   message: string
   data: {
     campaignId: string
+    campaignName: string
   }
 }
 
