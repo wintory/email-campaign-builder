@@ -5,5 +5,4 @@ export const CampaignSchema = z.object({
   subjectLine: z.string().min(1),
   emailContent: z.string().min(1),
   senderEmail: z.string().email(),
-  campaignStartDate: z.string().datetime(),
 })

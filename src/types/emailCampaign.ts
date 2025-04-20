@@ -3,5 +3,4 @@ export interface EmailCampaign {
   subjectLine: string
   emailContent: string
   senderEmail: string
-  campaignStartDate: Date
 }

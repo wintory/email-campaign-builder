@@ -1,39 +1,53 @@
-import TextInput from '@/components/TextInput'
+import Editor from '@/components/Editor'
+import FormInput from '@/components/FormInput'
 import useEmailCampaingn from '@/hooks/useEmailCampaign'
 
 const EmailCampaign = () => {
-  const { createEmailCampaign, register, handleSubmit, errors, reset } =
-    useEmailCampaingn()
+  const {
+    handleCreateEmailCampaign,
+    register,
+    handleSubmit,
+    errors,
+    setValue,
+    handleResetForm,
+    watch,
+  } = useEmailCampaingn()
 
   return (
-    <div className="rounded-xl border-2 border-gray-300 p-5 shadow-md">
+    <div className="p-5 shadow-md">
       <form
-        onSubmit={handleSubmit(createEmailCampaign)}
+        onSubmit={handleSubmit(handleCreateEmailCampaign)}
         className="mx-auto w-full space-y-2 p-3"
       >
         <p className="pb-3 text-2xl">Create Email Campaign</p>
-        <TextInput
-          label="Campaign Name"
-          placeholder="Enter Campaign Name"
-          fieldName="campaignName"
-          register={register}
-          errors={errors?.campaignName}
-        />
-        <TextInput
-          label="Subject Line"
-          placeholder="Enter Subject Line"
-          fieldName="subjectLine"
-          register={register}
-          errors={errors?.subjectLine}
-        />
-        <TextInput
-          label="Sender Email"
-          placeholder="Sender Email"
-          fieldName="senderEmail"
-          register={register}
-          errors={errors?.senderEmail}
-        />
-        <div className="flex justify-center gap-3">
+        <FormInput label="Campaign Name" errors={errors?.campaignName}>
+          <input
+            {...register('campaignName')}
+            placeholder="Enter Campaign Name"
+            className="input w-full border p-2"
+          />
+        </FormInput>
+        <FormInput label="Subject Line" errors={errors?.subjectLine}>
+          <input
+            {...register('subjectLine')}
+            placeholder="Enter Subject Line"
+            className="input w-full border p-2"
+          />
+        </FormInput>
+        <FormInput label="Sender Email" errors={errors?.senderEmail}>
+          <input
+            {...register('senderEmail')}
+            placeholder="Enter Sender Email"
+            className="input w-full border p-2"
+          />
+        </FormInput>
+        <FormInput label="Email Content" errors={errors?.emailContent}>
+          <Editor
+            value={watch('emailContent')}
+            onChange={(content) => setValue('emailContent', content)}
+          />
+        </FormInput>
+        <div className="flex justify-center gap-3 py-3">
           <button
             type="submit"
             className="cursor-pointer rounded bg-blue-600 px-4 py-2 text-white"
@@ -43,9 +57,7 @@ const EmailCampaign = () => {
           <button
             type="reset"
             className="cursor-pointer rounded px-4 py-2"
-            onClick={() => {
-              reset()
-            }}
+            onClick={handleResetForm}
           >
             Reset
           </button>

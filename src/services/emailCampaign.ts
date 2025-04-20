@@ -2,13 +2,21 @@ import { API_URL } from '@/constants/url'
 import { EmailCampaign } from '@/types/emailCampaign'
 import { axiosInstance } from '.'
 
+interface EmailCampaignResponse {
+  status: string
+  message: string
+  data: {
+    campaignId: string
+  }
+}
+
 export const getAllEmailCampaigns = async () => {}
 
-export const createEmailCampaign = async (payload: EmailCampaign) => {
+export const createEmailCampaign = async (
+  payload: EmailCampaign
+): Promise<Readonly<EmailCampaignResponse>> => {
   try {
-    const response = await axiosInstance.post(API_URL.EMAIL_CAMPAIGN, {
-      body: payload,
-    })
+    const response = await axiosInstance.post(API_URL.EMAIL_CAMPAIGN, payload)
 
     return response.data
   } catch (error: unknown) {
